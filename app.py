@@ -1,5 +1,6 @@
 from flask import Flask, render_template, redirect, url_for, request, flash, jsonify
 from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy.sql.expression import func
 from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user
 from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import datetime
@@ -98,7 +99,9 @@ def quiz():
 @app.route('/api/questions')
 @login_required
 def get_questions():
-    questions = Question.query.limit(20).all() # Load 20 questions for the test
+    # This pulls 20 RANDOM questions from the database instead of the same first 20
+    questions = Question.query.order_by(func.random()).limit(20).all() 
+    
     q_list = []
     for q in questions:
         q_list.append({

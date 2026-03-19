@@ -1,0 +1,33 @@
+body {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    min-height: 100vh;
+}
+.fancy-card {
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+}
+.option-btn {
+    text-align: left;
+    padding: 15px 20px;
+    font-size: 1.1rem;
+    border-radius: 10px;
+    transition: all 0.2s;
+    border: 2px solid #e9ecef;
+    background-color: white;
+}
+.option-btn:hover:not(:disabled) {
+    border-color: #0d6efd;
+    background-color: #f8f9fa;
+    transform: translateY(-2px);
+}
+.option-btn.correct {
+    background-color: #d1e7dd;
+    border-color: #198754;
+    color: #0f5132;
+}
+.option-btn.wrong {
+    background-color: #f8d7da;
+    border-color: #dc3545;
+    color: #842029;
+}
